@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "vulnerability-rag"
+version = "0.1.0"
+description = "Vulnerability CoPilot App"
+authors = ["dhirajsuvarna <dhiraj.suvarna@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+xmltodict = "^0.13.0"
+neo4j = "^5.19.0"
+tqdm = "^4.66.2"
+ipykernel = "^6.29.4"
+
+
+[tool.poetry.group.dev.dependencies]
+lxml = "^5.2.1"
+ipykernel = "^6.29.4"
+pandas = "^2.2.2"
+
+
+[tool.poetry.group.langchaindev.dependencies]
+langchain = "^0.1.16"
+langchain-community = "^0.0.34"
+langchain-openai = "^0.1.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
