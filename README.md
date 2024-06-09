@@ -1,4 +1,4 @@
-"# Star Project" 
+# Star Project 
 
 
 # commands to create graph using csv import 
@@ -19,3 +19,10 @@ bin\neo4j-admin.bat database import full --overwrite-destination --nodes="import
 # Graph Schema 
 
 ![Vulnerability Graph Schema](Vulnerability_Graph_Model.png "Vulnerability Graph Schema")
+
+
+# Steps to run the project 
+
+1. Set the OPENAI_API_KEY in the enviornment 
+2. Start the backend server by going to server folder and type the command `python server.py` - this will start the server 
+3. Start the UI by going to streamlit_ui folder and type the command `streamlit run main.py` - this will start the UI
