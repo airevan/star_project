@@ -8,4 +8,4 @@ class Message(BaseModel):
 
 
 class ChatBody(BaseModel):
-    messages = list[Message]
+    messages: list[Message]
