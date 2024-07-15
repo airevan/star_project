@@ -58,17 +58,25 @@ if st.session_state["messages"] and st.session_state["messages"][-1]["role"] == 
     last_message = st.session_state["messages"][-1]
     payload = {"messages": [last_message]}
 
-    with st.spinner("Thinking..."):
-        with st.chat_message("assistant", avatar=constants.AVATAR_MAP["assistant"]):
-            answer_from_llm = "I am sure you will find answer on your own"
-            st.write(answer_from_llm)
+    with st.chat_message("assistant", avatar=constants.AVATAR_MAP["assistant"]):
+        with st.spinner("Thinking..."):
+            response = requests.post(constants.CHAT_URL, json=payload)
+            print(response)
+            if response.status_code == 200:
+                response_data = response.json()
+                st.write(response_data["result"])
 
-        st.session_state["messages"].append(
-            {
-                "role": "assistant",
-                "content": answer_from_llm,
-            }
-        )
+                st.session_state["messages"].append(
+                    {
+                        "role": "assistant",
+                        "content": response_data["result"],
+                    }
+                )
+    # with requests.post(constants.CHAT_URL, json=payload, stream=True) as response:
+    #     for chunk in response.iter_lines():
+    #         chunk_text = chunk.decode("utf-8")
+    #         print(chunk_text)
+
     # with requests.post(constants.CHAT_URL, json=payload, stream=True) as response:
     #     for chunk in response.iter_lines():
     #         chunk_text = chunk.decode("utf-8")
