@@ -8,22 +8,6 @@ bin\neo4j-admin.bat database import full --overwrite-destination --nodes="import
 ```
 
 
-# changes done after creating the graph 
-
-- adding additional label to the following nodes 
-- qualys_kb_data [Vulnerabilities]
-
-Use following code in Neo4j Browser to add labels
-```
-match (n:Detections)
-remove n:Vulnerablities
-set n:Findings;
-match (n:CVE_DATA)
-set n:Vulnerabilities;
-match(n:Qualys_Knowledge_Base)
-set n:Vulnerabilities
-```
-
 
 # Graph Schema 
 
